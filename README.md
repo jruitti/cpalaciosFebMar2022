@@ -3,7 +3,7 @@
 ### Turno Febrero-Marzo 2022, 2° llamado
 
 ### Objetivos
-- Desarrollar endpoints que permitan el registro y consulta del entidad Curso
+- Desarrollar endpoints que permitan el registro y consulta de la entidad Curso
 
 ### Tiempo
 - 2 horas reloj
