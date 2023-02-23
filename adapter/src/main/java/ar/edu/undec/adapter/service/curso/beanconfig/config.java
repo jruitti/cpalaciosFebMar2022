@@ -1,4 +1,4 @@
-package ar.edu.undec.adapter.data.curso;
+package ar.edu.undec.adapter.service.curso.beanconfig;
 
 import curso.output.ConsultarCursoRepositorio;
 import curso.output.CrearCursoRepositorio;
