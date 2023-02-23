@@ -6,6 +6,7 @@ import curso.output.ConsultarCursoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
@@ -16,6 +17,11 @@ public class ConsultarCursoRepositorioImplementacion implements ConsultarCursoRe
 
     @Override
     public Collection<Curso> obtenerCurso() {
-        return null;
+        Collection<Curso> cursos = new ArrayList<>();
+        this.consultarCursoCRUD.findAll().forEach(ce ->{
+            cursos.add(ce.getId(),ce.getNombre(),ce.getFechaCierre(),ce.getNivel());
+        });
+
+        return cursos;
     }
 }
