@@ -19,7 +19,7 @@ public class ConsultarCursoRepositorioImplementacion implements ConsultarCursoRe
     public Collection<Curso> obtenerCurso() {
         Collection<Curso> cursos = new ArrayList<>();
         this.consultarCursoCRUD.findAll().forEach(ce ->{
-            cursos.add(ce.getId(),ce.getNombre(),ce.getFechaCierre(),ce.getNivel());
+            cursos.add(Curso.instancia(ce.getId(),ce.getNombre(),ce.getFechaCierre(),ce.getNivel()));
         });
 
         return cursos;

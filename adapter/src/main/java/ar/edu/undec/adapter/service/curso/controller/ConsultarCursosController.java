@@ -23,6 +23,7 @@ public class ConsultarCursosController {
 
     @GetMapping
     public ResponseEntity<List<CursoDTO>> consultarCursos() {
-        return new ResponseEntity<CursoDTO>(this.consultarCursoInput.consultarCurso(), HttpStatus.ACCEPTED);
+
+        return new ResponseEntity<List<CursoDTO>>(this.consultarCursoInput.consultarCurso(), HttpStatus.ACCEPTED);
     }
 }
