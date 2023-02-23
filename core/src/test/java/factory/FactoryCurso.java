@@ -1,6 +1,11 @@
 package factory;
 
+import curso.exception.CursoIncompletoException;
+import curso.exception.CursoIncorrectoException;
+import curso.modelo.Curso;
+
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 

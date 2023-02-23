@@ -1,5 +1,9 @@
 package ar.edu.undec.adapter.factory;
 
+import ar.edu.undec.adapter.data.curso.model.CursoEntity;
+import ar.edu.undec.adapter.service.curso.model.CursoDTO;
+import curso.modelo.Curso;
+
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.stream.Collectors;

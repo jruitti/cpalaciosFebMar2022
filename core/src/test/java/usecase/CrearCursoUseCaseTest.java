@@ -1,5 +1,12 @@
 package usecase;
 
+import curso.exception.CursoExisteException;
+import curso.exception.CursoIncompletoException;
+import curso.exception.CursoIncorrectoException;
+import curso.input.CrearCursoInput;
+import curso.modelo.Curso;
+import curso.output.CrearCursoRepositorio;
+import curso.usecase.CrearCursoUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +33,7 @@ public class CrearCursoUseCaseTest {
     }
 
     @Test
-    public void crearCurso_noExisteCurso_CreaCorrectamente() {
+    public void crearCurso_noExisteCurso_CreaCorrectamente() throws CursoIncorrectoException, CursoIncompletoException {
         Curso nuevoCurso = Curso.instancia(null, "Java", LocalDate.MIN, "Inicial");
         when(crearCursoRepositorio.existePorNombre("Java")).thenReturn(false);
         when(crearCursoRepositorio.guardar(nuevoCurso)).thenReturn(1);
@@ -35,7 +42,7 @@ public class CrearCursoUseCaseTest {
     }
 
     @Test
-    public void crearCurso_ExisteCurso_CursoExisteException() {
+    public void crearCurso_ExisteCurso_CursoExisteException() throws CursoIncorrectoException, CursoIncompletoException {
         Curso nuevoCurso = Curso.instancia(null, "Java", LocalDate.MIN, "Inicial");
         when(crearCursoRepositorio.existePorNombre("Java")).thenReturn(true);
         verify(crearCursoRepositorio, never()).guardar(nuevoCurso);

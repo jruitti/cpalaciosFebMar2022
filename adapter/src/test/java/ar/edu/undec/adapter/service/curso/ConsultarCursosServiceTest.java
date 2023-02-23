@@ -1,6 +1,7 @@
 package ar.edu.undec.adapter.service.curso;
 
 import ar.edu.undec.adapter.factory.FactoryCursoAdapter;
+import ar.edu.undec.adapter.service.curso.controller.ConsultarCursosController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,5 +1,8 @@
 package model;
 
+import curso.exception.CursoIncompletoException;
+import curso.exception.CursoIncorrectoException;
+import curso.modelo.Curso;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -9,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CursoUnitTest {
 
     @Test
-    void instancia_TodosLosAtributos_InstanciaCorrecta() {
+    void instancia_TodosLosAtributos_InstanciaCorrecta() throws CursoIncorrectoException, CursoIncompletoException {
         Curso unCurso = Curso.instancia(1, "nombre", LocalDate.MIN, "Inicial");
         assertNotNull(unCurso);
     }

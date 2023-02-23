@@ -1,5 +1,7 @@
 package ar.edu.undec.adapter.handler;
 
+import curso.exception.CursoIncompletoException;
+import curso.exception.CursoIncorrectoException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
