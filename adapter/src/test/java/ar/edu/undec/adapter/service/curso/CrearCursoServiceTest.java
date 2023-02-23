@@ -48,7 +48,7 @@ public class CrearCursoServiceTest {
     public void crearCurso_CursoExiste_Devuelve400BadRequest() {
         CursoDTO nuevoCurso = FactoryCursoAdapter.sampleDTO(null);
         doThrow(CursoExisteException.class).when(crearCursoInput).crearCurso(any(Curso.class));
-        ResponseEntity<String> response = crearCursoController.crearCurso(nuevoCurso);
+        ResponseEntity<Integer> response = crearCursoController.crearCurso(nuevoCurso);
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     }
 }

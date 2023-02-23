@@ -1,7 +1,10 @@
 package ar.edu.undec.adapter.service.curso.controller;
 
+import ar.edu.undec.adapter.data.curso.model.CursoEntity;
 import ar.edu.undec.adapter.service.curso.model.CursoDTO;
 import curso.input.CrearCursoInput;
+import curso.modelo.Curso;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +23,13 @@ public class CrearCursoController {
 
     @PostMapping
     public ResponseEntity<Integer> crearCurso(@RequestBody CursoDTO nuevoCurso) {
-        return
+        Curso curso= new Curso();
+        curso.setId(nuevoCurso.getId());
+        curso.setNombre(nuevoCurso.getNombre());
+        curso.setFechaCierra(nuevoCurso.getFechaCreacion());
+        curso.setNivel(nuevoCurso.getNivel());
+
+        return new ResponseEntity<Integer>(this.crearCursoInput.crearCurso(curso), HttpStatus.ACCEPTED);
     }
+
 }

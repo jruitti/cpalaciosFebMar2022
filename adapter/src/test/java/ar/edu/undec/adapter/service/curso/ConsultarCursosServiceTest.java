@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import curso.input.ConsultarCursoInput;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,16 +27,16 @@ public class ConsultarCursosServiceTest {
     ConsultarCursosController consultarCursosController;
 
     @Mock
-    ConsultarCursosInput consultarCursosInput;
+    ConsultarCursoInput consultarCursoInput;
 
     @BeforeEach
     void setup() {
-        consultarCursosController = new ConsultarCursosController(consultarCursosInput);
+        consultarCursosController = new ConsultarCursosController(consultarCursoInput);
     }
 
     @Test
     void consultarCursos_ExistenCursos_Devuelve200() {
-        when(consultarCursosInput.consultarCursos()).thenReturn(FactoryCursoAdapter.sampleManyCore(3));
+        when(consultarCursoInput.consultarCurso()).thenReturn(FactoryCursoAdapter.sampleManyCore(3));
         ResponseEntity<List<CursoDTO>> response = consultarCursosController.consultarCursos();
         assertEquals(3, Objects.requireNonNull(response.getBody()).size());
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -43,7 +44,7 @@ public class ConsultarCursosServiceTest {
 
     @Test
     void consultarCursos_NoExistenCursos_Devuelve204() {
-        when(consultarCursosInput.consultarCursos()).thenReturn(Collections.emptyList());
+        when(consultarCursoInput.consultarCurso()).thenReturn(Collections.emptyList());
         ResponseEntity<List<CursoDTO>> response = consultarCursosController.consultarCursos();
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
     }
